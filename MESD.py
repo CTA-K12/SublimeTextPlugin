@@ -1,17 +1,30 @@
-import sublime, sublime_plugin
+import string
+import sublime_plugin
 
 class SaveandexitCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.run_command('save')
         self.window.run_command('close')
 
-class Rot13Command():
-    def run(self, view, args):
-        for region in view.sel():
-            if not region.empty():
-                # Get the selected text
-                s = view.substr(region)
-                # Transform it via rot13
-                s = s.encode('rot13')
-                # Replace the selection with transformed text
-                view.replace(region, s)
+class Transformer(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.transform(self.transformer[0], self.view, edit)
+
+    def transform(self, f, view, edit):
+        for s in view.sel():
+            if s.empty():
+                s = view.word(s)
+
+            txt = f(view.substr(s))
+            view.replace(edit, s, txt)
+
+def rot13(ch):
+    o = ord(ch)
+    if o >= ord('a') and o <= ord('z'):
+        return unichr((o - ord('a') + 13) % 26 + ord('a'))
+    if o >= ord('A') and o <= ord('Z'):
+        return unichr((o - ord('A') + 13) % 26 + ord('A'))
+    return ch
+
+class RotCommand(Transformer):
+    transformer = lambda s: "".join([rot13(ch) for ch in s]),

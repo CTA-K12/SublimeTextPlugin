@@ -5,6 +5,6 @@
     },
     {
         "keys": ["ctrl+shift+c"],
-        "command": "rot13"
+        "command": "rot"
     }
 ]

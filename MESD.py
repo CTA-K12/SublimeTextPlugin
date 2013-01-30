@@ -5,7 +5,7 @@ class SaveandexitCommand(sublime_plugin.WindowCommand):
         self.window.run_command('save')
         self.window.run_command('close')
 
-class Rot13Command(sublime_plugin.TextCommand):
+class Rot13Command():
     def run(self, view, args):
         for region in view.sel():
             if not region.empty():

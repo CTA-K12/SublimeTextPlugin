@@ -1,0 +1,12 @@
+[
+    {
+        "id": "file",
+        "children":
+        [
+            {
+                "caption": "Save And Exit",
+                "command": "saveandexit"
+            }
+        ]
+    }
+]

@@ -1,10 +1,15 @@
 import string
 import sublime_plugin
 
-class SaveandexitCommand(sublime_plugin.WindowCommand):
+class SaveandcloseCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.run_command('save')
         self.window.run_command('close')
+
+class ReindentallCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        self.window.run_command('select_all')
+        self.window.run_command('reindent')
 
 class Transformer(sublime_plugin.TextCommand):
     def run(self, edit):

@@ -1,10 +1,14 @@
 [
     {
-        "keys": ["ctrl+'"],
-        "command": "saveandexit"
+        "keys": [
+            "ctrl+'"
+        ],
+        "command": "saveandclose"
     },
     {
-        "keys": ["ctrl+shift+c"],
+        "keys": [
+            "ctrl+shift+c"
+        ],
         "command": "rot"
     }
 ]

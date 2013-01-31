@@ -4,8 +4,8 @@
         "children":
         [
             {
-                "caption": "Save And Exit",
-                "command": "saveandexit"
+                "caption": "Save And Close",
+                "command": "saveandclose"
             }
         ]
     }

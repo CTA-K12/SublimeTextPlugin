@@ -12,14 +12,12 @@ class ReindentallCommand(sublime_plugin.WindowCommand):
         self.window.run_command('select_all')
         self.window.run_command('oddspace')
         self.window.run_command('reindent')
+        self.window.run_command('save')
 
 class FinishCommand(sublime_plugin.WindowCommand):
     def run(self):
-        self.window.run_command('select_all')
-        self.window.run_command('oddspace')
-        self.window.run_command('reindent')
+        self.window.run_command('php_tidy')
         self.window.run_command('save')
-        self.window.run_command('close')
 
 class Transformer(sublime_plugin.TextCommand):
     def run(self, edit):
@@ -71,7 +69,7 @@ def rot13(ch):
 
 class RotCommand(Transformer):
     transformer = lambda s: "".join([rot13(ch) for ch in s]),
-    
+
 class PrintThemeRule(sublime_plugin.TextCommand):
 
   def load_theme(self):

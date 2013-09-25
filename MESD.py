@@ -7,6 +7,15 @@ class SaveandcloseCommand(sublime_plugin.WindowCommand):
         self.window.run_command('save')
         self.window.run_command('close')
 
+class ReindentandcloseCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        self.window.run_command('select_all')
+        self.window.run_command('oddspace')
+        self.window.run_command('reindent')
+        self.window.run_command('php_tidy')
+        self.window.run_command('save')
+        self.window.run_command('close')
+
 class ReindentallCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.run_command('select_all')
@@ -18,6 +27,10 @@ class FinishCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.run_command('php_tidy')
         self.window.run_command('save')
+
+class TidyCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        self.window.run_command('php_tidy')
 
 class Transformer(sublime_plugin.TextCommand):
     def run(self, edit):

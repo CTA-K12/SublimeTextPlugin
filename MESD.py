@@ -58,6 +58,10 @@ class OddspaceCommand(sublime_plugin.TextCommand):
                 c.append(l)
             v.replace(edit, s, "\n".join(c))
 
+class SeesyntaxCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        print (self.view.syntax_name(self.view.sel()[0].b))
+
 #1
  #1
   #1

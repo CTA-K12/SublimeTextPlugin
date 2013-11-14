@@ -1,6 +1,14 @@
 [
-    {
-        "keys": ["ctrl+shift+c"],
-        "command": "rot"
-    }
-    ]
+  {
+    "keys": [
+      "ctrl+shift+c"
+    ],
+    "command": "rot"
+  },
+  {
+    "keys": [
+      "super+alt+s"
+    ],
+    "command": "seesyntax"
+  }
+]
